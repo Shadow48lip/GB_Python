@@ -1,1 +1,1 @@
-# GB_Python lessons
+# GB_Python lessons Dmitriy N

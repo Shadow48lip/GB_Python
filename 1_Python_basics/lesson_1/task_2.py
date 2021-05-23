@@ -27,14 +27,12 @@ for cube in cube_digits:
         number = cube // splitter
 
         if number > 0:
-            # print(number, splitter)
-            # print('Cube', cube, 'Split', splitter)
             sum_numbers += number
             cube -= number * splitter
 
     # считаем сумму для вопроса под литерой - а
     if sum_numbers > 0 and not sum_numbers % 7:
-        sum_numbers_a += sum_numbers
+        sum_numbers_a += original_number
 
 
     # пункт - b,c
@@ -49,17 +47,12 @@ for cube in cube_digits:
         number = cube // splitter
 
         if number > 0:
-            # print(number, splitter)
-            # print('Cube', cube, 'Split', splitter)
             sum_numbers2 += number
             cube -= number * splitter
 
-    # if sum_numbers2 > 0:
-    #     print('Число', original_number, 'его сумма', sum_numbers2)
-
     # считаем сумму для вопроса под литерой - а
     if sum_numbers2 > 0 and not sum_numbers2 % 7:
-        sum_numbers_b += sum_numbers2
+        sum_numbers_b += original_number
 
 print('Ответ на вопрос к задаче 2, пункт "а":', sum_numbers_a)
 print('Ответ на вопрос к задаче 2, пункт "b,c":', sum_numbers_b)

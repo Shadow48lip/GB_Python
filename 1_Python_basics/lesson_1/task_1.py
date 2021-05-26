@@ -16,7 +16,7 @@ parts_of_time = {
 }
 
 # Строка для вывода
-time_str = ''
+# time_str = ''
 # Остаток секунд для рассчетов
 remainder = duration
 

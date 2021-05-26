@@ -1,4 +1,5 @@
 ﻿#PyCharm
 /.idea/
+**.DS_Store
 #Local test files
 /**/test.py

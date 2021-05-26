@@ -56,3 +56,6 @@ for cube in cube_digits:
 
 print('Ответ на вопрос к задаче 2, пункт "а":', sum_numbers_a)
 print('Ответ на вопрос к задаче 2, пункт "b,c":', sum_numbers_b)
+
+# Решение преподователя. Это даст сумму цыфр
+sum(list(str(number)))

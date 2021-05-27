@@ -19,6 +19,7 @@ my_list = ['в', '5', 'часов', '17', 'минут', 'температура'
 # Более заморочный вариант без создания списков
 len_list = len(my_list)
 start = 0
+
 while start < len_list:
     i = my_list[start]
 
@@ -29,12 +30,15 @@ while start < len_list:
         else:
             my_list[start] = f'{int(i):02d}'
 
-        my_list.insert(start, '"')
+        my_list.insert(start, ' "')
         my_list.insert(start + 2, '"')
 
         start += 3
         len_list += 2
     else:
+        # Проставляем прблеы сами, без помощи .join()
+        if start != 0:
+            my_list[start] = f' {i}'
         start += 1
 
 print(my_list)
@@ -51,7 +55,7 @@ print(my_list)
 #             my_list[my_list.index(i)] = f'{int(i):02d}'
 
 # Из списка в строку
-my_list_str = ' '.join(my_list)
+my_list_str = ''.join(my_list)
 
-# Пробелы между ковычками и числом я бы потер навернеое регулярными выражениями, но наверное еще рано туда лезть
+# Пробелы между ковычками и числом убраны!
 print(my_list_str)

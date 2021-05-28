@@ -23,14 +23,14 @@ start = 0
 while start < len_list:
     i = my_list[start]
 
-    if 48 <= ord(i[-1]) <= 57:
+    if 48 <= ord(i[-1]) <= 57:  # i.isdigit()
 
-        if i[0] == '+':
+        if i[0] == '+':  # i.startwith('+')
             my_list[start] = f'+{int(i):02d}'
         else:
             my_list[start] = f'{int(i):02d}'
 
-        my_list.insert(start, ' "')
+        my_list.insert(start, ' "')  # my_list.extend('"', f'{int(i):02}', '"')
         my_list.insert(start + 2, '"')
 
         start += 3

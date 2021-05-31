@@ -42,7 +42,7 @@ def num_translate_adv(number):
         if number.lower() in num_dict:
             return num_dict.get(number.lower()).capitalize()
         else:
-            None
+            return None
     else:
         return num_dict.get(number, None)
 

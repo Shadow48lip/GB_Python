@@ -1,7 +1,7 @@
 # user_1 = ['Иван', 30]
 # user_2 = ['Oleg', 40]
 
-# user_3 = {'name': 'Ivan', 'age': 30, 'phone': 929091090219}
+user_3 = {'name': 'Ivan', 'age': 30, 'phone': 929091090219}
 # dict
 # print(user_3['age'])
 # print(user_3['qwe'])
@@ -14,9 +14,9 @@ user_1 = {'name': 'Ivan', 'age': 30, 'phone': 929091090219}
 # user_2 = {'name': 'asd'}
 # user_1.update(user_2)
 # print(user_1)
-# print(user_3.setdefault('adress', 'Россия'))
+print(user_3.setdefault('adress', 'Россия'))
 # print(user_3.setdefault('age', '20'))
-# print(user_3)
+print(user_3)
 # user_3['qwe'] = 'asd'
 # print(user_3)
 # user_1.update(user_2)
@@ -169,8 +169,9 @@ ages = [50, 4]
 # print(list(user_5))
 
 #
-for name, age in zip_longest(names, ages, fillvalue=''):
-    print(name, age)
+# print(list(zip(names, ages)))
+# for name, age in zip_longest(names, ages, fillvalue=''):
+#     print(name, age)
 # def qwe(x):
 #     return x ** 3 + 1
 

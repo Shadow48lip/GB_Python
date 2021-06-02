@@ -1,5 +1,12 @@
 ﻿#PyCharm
 /.idea/
+__pycache__/
+venv/.
 **.DS_Store
 #Local test files
 /**/test.py
+### Django ###
+*.log
+*.pot
+*.pyc
+local_settings.py

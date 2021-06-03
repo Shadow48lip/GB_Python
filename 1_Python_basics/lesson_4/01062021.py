@@ -12,7 +12,7 @@
 
 # def say_hello(name):
 #     print(name + 'qwe')
-import requests
+# import requests
 # from requests import get
 # response = get('http://geekbrains.ru')
 # print(response.headers)
@@ -66,8 +66,10 @@ from datetime import datetime, timedelta
 
 
 user_created = datetime(year=2020, month=12, day=5, hour=12, minute=52, second=6)
+print(str(datetime))
 activation_period = timedelta(days=190)
 current_time = datetime.now()
+print('www', current_time, activation_period)
 
 if current_time < user_created + activation_period:
     print(f'Осталось {user_created + activation_period - current_time}')

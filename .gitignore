@@ -1,7 +1,7 @@
 ﻿#PyCharm
 /.idea/
 __pycache__/
-venv/.
+venv/
 **.DS_Store
 #Local test files
 /**/test.py

@@ -26,4 +26,5 @@ def currency_rates(currency_code):
 
 
 if __name__ == '__main__':
+
     print(currency_rates('AMD'))

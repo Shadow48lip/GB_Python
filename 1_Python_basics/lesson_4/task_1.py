@@ -13,11 +13,13 @@ __author__ = 'Дмитрий Назаркин'
 # использовать в ответе функции?
 import requests, datetime
 
+map()
 
 def currency_rates(currency_code):
     data = requests.get('http://www.cbr.ru/scripts/XML_daily.asp')
 
     # Ищем валюту
+    # if currency_code not in data.text  - так тоже можно искать.
     position = data.text.find(currency_code.upper())
 
     if position == -1:

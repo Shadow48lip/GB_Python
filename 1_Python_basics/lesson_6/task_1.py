@@ -19,6 +19,12 @@ with open("nginx_logs.txt", "r") as f:
 
 print(parsed_data)
 
+# Еще один вариант. Отсортировать массив по значениям и вывести чеерез срез ТОП-5
+#         spam_dict.setdefault(splitted[0], 0)
+#         spam_dict[splitted[0]] += 1
+# spam_dict = sorted(parsed_data.items(), key=lambda x: x[1], reverse=True)
+# print(spam_dict[:5])  # Not only one spamer
+
 # b)
 flud_data = []
 

@@ -13,8 +13,12 @@ import json
 
 users_dict = {}
 
-f1 = open('users.csv')
-f2 = open('hobby.csv')
+f1 = open('users.csv', encoding='utf-8')
+f2 = open('hobby.csv', encoding='utf-8')
+
+# Вот так можно было посчитать количество строк через генераторы
+# num_lines_users = sum(1 for line in f1)
+# num_lines_hobby = sum(1 for line in f2)
 
 for fio, hobby in zip_longest(f1, f2):
     # выходим из скрипта с кодом «1» если в файле с фио меньше записей чем в хобби
@@ -34,7 +38,8 @@ f1.close()
 f2.close()
 
 with open("users_hobby.json", "w", encoding='utf-8') as f:
-    json.dump(users_dict, f)
+    # Чтоб не ломалась кирилица в json (ensure_ascii=False)
+    json.dump(users_dict, f, ensure_ascii=False)
 
 with open("users_hobby.json", encoding='utf-8') as f:
     data = json.load(f)

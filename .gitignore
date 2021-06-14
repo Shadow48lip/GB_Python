@@ -10,3 +10,5 @@ venv/
 *.pot
 *.pyc
 local_settings.py
+#lessons
+/1_Python_basics/lesson_7/some_data/

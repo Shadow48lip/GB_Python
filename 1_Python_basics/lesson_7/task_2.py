@@ -29,7 +29,7 @@ template_files += [(root, file) for root, _dirs, files in os.walk('my_project')
                    for file in files if file.lower().endswith('.html')]
 
 for path, filename in template_files:
-    path_to_dir_new = os.path.join('templates', path.split('/')[-1])
+    path_to_dir_new = os.path.join('templates', os.path.basename(path))
     path_to_file_new = os.path.join(path_to_dir_new, filename)
     path_to_file_old = os.path.join(path, filename)
     # print(path_to_dir_new, path_to_file_new)

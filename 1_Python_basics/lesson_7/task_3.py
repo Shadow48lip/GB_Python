@@ -60,7 +60,7 @@ for folder in list_folders:
 print(stat_dict_a)
 # print(stat_dict_b)
 
-json_file = os.getcwd().split('/')[-1] + '_summary.json'
+json_file = os.path.basename(os.getcwd()) + '_summary.json'
 
 with open(json_file, 'w') as f:
     json.dump(stat_dict_b, f)

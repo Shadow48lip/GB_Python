@@ -33,8 +33,12 @@ def type_logger(func):
 
 
 @type_logger
-def calc_cube(x, y, z):
-   return x ** 3 + y ** 3 + z ** 3
+def calc_cube(*args):
+    return list(map(lambda x: x ** 3, args))
+    #return x ** 3 + y ** 3 + z ** 3
+
+
+
 
 print(calc_cube(5, 7, 10))
 print(calc_cube.__name__)

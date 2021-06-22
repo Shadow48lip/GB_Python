@@ -25,11 +25,11 @@ class Car:
         print(f'Автомобиль {self.name}, цвет {self.color}. {is_police}')
 
     def go(self):
-        print('Автомобиль поехал')
+        print(f'Автомобиль {self.name} поехал')
 
     def stop(self):
         self.speed = 0
-        print('Автомобиль остановился')
+        print(f'Автомобиль {self.name} остановился')
 
     def turn(self, direction):
         '''Влево - L, вправо - R'''

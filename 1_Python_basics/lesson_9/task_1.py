@@ -19,18 +19,12 @@ from time import sleep
 
 class TrafficLight:
     def __init__(self):
-        self.__color = 'red'
+        self.__color = {'red': 7, 'yellow': 2, 'green': 4}
 
     def running(self):
-        # Проверка, вдруг изменена приватная переменная
-        if self.__color != 'red':
-            raise ValueError('Start color in not Red')
-
-        color_list = {'red': 7, 'yellow': 2, 'green': 4}
-
-        for color in cycle(color_list.keys()):
+        for color in cycle(self.__color.keys()):
             print(color)
-            sleep(color_list[color])
+            sleep(self.__color[color])
 
 # созадние обхекта/экземпляра класса
 tl = TrafficLight()

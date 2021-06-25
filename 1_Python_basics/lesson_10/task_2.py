@@ -11,6 +11,7 @@ __author__ = 'Дмитрий Назаркин'
 
 from abc import ABC, abstractmethod
 
+
 class DressAbsClass(ABC):
     def __init__(self):
         self.total = 0
@@ -29,9 +30,10 @@ class CalcSuit(DressAbsClass):
         self.total += consumption
         print(f'Раход ткани по костюму {consumption} м.')
 
-class CalcСoat(DressAbsClass):
+
+class CalcCoat(DressAbsClass):
     def calculation(self, size):
-        consumption = round(size/6.5 + 0.5, 1)
+        consumption = round(size / 6.5 + 0.5, 1)
         self.total += consumption
         print(f'Раход ткани по пальто {consumption} м.')
 
@@ -43,7 +45,8 @@ class TotalCalc:
 
     @property
     def get_total(self):
-        print('Общий расход такани ',self.suit.total + self.coat.total,'м.')
+        print('Общий расход такани ', self.suit.total + self.coat.total, 'м.')
+
 
 suit = CalcSuit()
 suit.calculation(10)
@@ -51,7 +54,7 @@ suit.calculation(5)
 suit.calculation(1)
 print(suit)
 
-coat = CalcСoat()
+coat = CalcCoat()
 coat.calculation(12)
 coat.calculation(4)
 print(coat)

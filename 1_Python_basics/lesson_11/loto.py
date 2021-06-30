@@ -82,6 +82,7 @@ class LotoCard:
         for index, line in enumerate(self._card):
             self._card[index] = sorted(line, key=check_sort_item)
 
+    # сколько осталось чисел в карточке
     @property
     def get_remainder(self):
         count = 0
@@ -89,6 +90,7 @@ class LotoCard:
             count += sum(True for number in line if str(number).isdigit())
         return count
 
+    # рисуем карточки
     @property
     def get_card(self):
         MAX_WIDTH_CARD = 42
@@ -109,6 +111,7 @@ class LotoCard:
 
         return card
 
+    # вычеркиваем число
     def cross_out(self, number):
         count = 0
         for line in self._card:
@@ -150,7 +153,6 @@ class LotoGame:
                 print('Компьютер победил!')
                 break
 
-            # проверяем за человека (любой ввод кроме "y" означает "n")
             if human_command == 'y':
                 if self._player.cross_out(current_number) == 0:
                     print('Нечего зачеркнуть, вы проиграли :(')
@@ -163,6 +165,7 @@ class LotoGame:
             else:
                 if self._player.cross_out(current_number) > 0:
                     print('Нужно было зачеркнуть, вы проиграли :(')
+                    break
 
         print('Игра закончена!')
 

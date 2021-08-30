@@ -1,4 +1,4 @@
-﻿#PyCharm
+#PyCharm
 /.idea/
 __pycache__/
 venv/
@@ -12,3 +12,5 @@ venv/
 local_settings.py
 #lessons
 /1_Python_basics/lesson_7/some_data/
+/1_Linux/
+1_MySQL/lesson_1.sql

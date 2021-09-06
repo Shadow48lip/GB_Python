@@ -1,8 +1,12 @@
 
 
 
-Исправляем данные даты и времени
-STR_TO_DATE (created_at, '%d.%m.%Y %H:%i')
+Исправляем данные даты и времени, если к примеру дата написана по стандарту
+    STR_TO_DATE (created_at, '%d.%m.%Y %H:%i')
+
+Сложение и вычитание дат
+    DATE(NOW() - INTERVAL 18 YEAR)
+    SELECT DATE_SUB(NOW(), INTERVAL 100 DAY), NOW() - INTERVAL 100 DAY; --одно и то же
 
 
 При создании таблицы дефольтные данные на insert и update
@@ -33,3 +37,26 @@ FROM users;
 
 Склеивание в строку из переменных
     CONCAT(name, ' ', lastname)
+
+
+Вложенные запросы
+    SELECT COUNT(*) FROM media 
+        WHERE user_id = 1
+    AND media_type_id = (
+        SELECT id FROM media_types WHERE name LIKE 'photo'
+    );
+
+Склеить 2 запроса в одну колонку
+    SELECT media_type_id FROM media WHERE user_id = 1
+    UNION
+    SELECT media_type_id FROM media WHERE user_id...
+
+
+
+Фильтрация (условие) в группиповках. Так как GROUP BY идет после WHERE, то исп. HAVING
+    .. GROBY BY user_id HAVING photo > 5
+
+
+
+JOIN
+линковку двух таблиц лучше производить через ON tb1.id=tb2.tbid, а не в WHERE

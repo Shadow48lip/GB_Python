@@ -1,6 +1,16 @@
+#  Администрирование
+Переменные управления логами
+log_output=TABLE (FILE, NONE) - куда писать логи
+slow_query_log=ON
+
+SHOW VARIABLE LIKE 'slow_query_log%'
+SET SESSION slow_query_log='ON'; или SET GLOBAL slow_query_log='ON'; или конфиг секция [mysqld]
+SELECT BENCHMARK(1000000, (SELECT COUNT(*) FROM products));
+SELECT * FROM mysql.slow_log;
 
 
 
+# SQL
 Исправляем данные даты и времени, если к примеру дата написана по стандарту
     STR_TO_DATE (created_at, '%d.%m.%Y %H:%i')
 
@@ -60,3 +70,74 @@ FROM users;
 
 JOIN
 линковку двух таблиц лучше производить через ON tb1.id=tb2.tbid, а не в WHERE
+
+
+# ТРАНЗАКЦИИ
+Управление режимом сохрания транзаций, переменная innodb_flush_log_at_rtx_commin
+0 - сохранение раз в сек
+1 - после каждой транзации 
+2 - 0+1
+
+START TRANSACTION;
+
+SELECT...
+UPDATE...
+DELETE...
+
+COMMIT; - должно быть без ошибок
+ROLLBACK; - отмена
+
+
+# ПЕРЕМЕННЫЕ 
+Сохранние в переменную результата. Живет только в пределах сессии
+SELECT @total := COUNT(*) FROM products;
+SELECT COUNT(*) FROM products INTO @total;
+SELECT @total;
+
+SET @last := NOW() - INTERVAL 7 DAY;
+
+
+# Временная Таблица - живет в рамках сеанса
+CREATE TEMPORARY TABLE tb_name (......);
+
+# Динамический запрос - живет в рамках сеанса
+PREPARE prd FROM 'SELECT name FROM products WHERE id = ?';
+SET @prod_id = 7;
+EXECUTE prd USING @prod_id;
+
+# Представления - виртуальная таблица
+CREATE VIEW mini_prod AS SELECT id, name FROM products;
+CREATE OR REPLACE VIEW mini_prod (prod_id, prod_name) AS SELECT id, name FROM products;
+
+Если нужно делать insert or update, необходимо ставить опцию - with check option;
+
+Удаление
+DROP VIEW IF EXISTS mini_prod;
+
+# Процедуры 
+это конструкции, которые ничего не возващают в запрос. Может создать переменную например
+DELIMITER //
+
+# Функции
+Возвращают значения. Можно использовать внутри запроса 
+SELECT MY_NOW()
+
+# Триггеры
+Это процедуры которые привязаны к событию изменения содержимого таблицы INSERT, UPDATE, DELETE
+Каждый тригер может сработать до запроса BEFORE или после AFTER
+
+DELIMITER //
+
+CREATE TRIGGER catalogs_count AFTER INSERT ON catalogs
+FOR EACH ROW
+BEGIN
+  SELECT COUNT(*) INTO @total FROM catalogs;
+END//
+
+
+-- # Сервисы для генерации данных
+-- # http://filldb.info/
+-- # http://www.generatedata.com/
+-- # https://sourceforge.net/p/benerator/wiki/Home/
+-- # http://www.dominicgiles.com/datagenerator.html
+-- #

@@ -32,7 +32,7 @@ DROP TABLE IF EXISTS `users_ban`;
 CREATE TABLE `users_ban` (
 	`id` SERIAL PRIMARY KEY,
 	`user_id` BIGINT UNSIGNED DEFAULT NULL,
-	`reason` varchar(255) COMMENT 'Причина накащания',
+	`reason` varchar(255) COMMENT 'Причина наказания',
 	`type` ENUM('login', 'posts', 'messages', 'media') COMMENT 'Что запрещаем делать',
     `created_at` DATETIME DEFAULT NOW(),
     `duration__up_to` DATETIME DEFAULT NULL COMMENT 'Когда бан закончится',

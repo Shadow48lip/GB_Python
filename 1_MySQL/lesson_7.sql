@@ -35,3 +35,12 @@ SELECT id,
 	(SELECT name FROM cities WHERE label=`flights`.`from`) AS `from`,
 	(SELECT name FROM cities WHERE label=`flights`.`to`) AS `to`
 FROM flights;
+
+-- best variant
+SELECT 
+	f.id,
+	cities_from.name AS `from`,
+	cities_to.name AS `to`
+FROM flights f
+LEFT JOIN cities AS cities_from ON f.from = cities_from.label
+LEFT JOIN cities AS cities_to ON f.to = cities_to.label

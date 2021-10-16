@@ -3,21 +3,24 @@
 # Программа должна определить среднюю прибыль (за год для всех предприятий) и вывести наименования предприятий,
 # чья прибыль выше среднего и отдельно вывести наименования предприятий, чья прибыль ниже среднего.
 
+from collections import defaultdict
+
 fabric_nums = int(input('Сколько будет предприятий: '))
 
-fabrics = {}
+fabrics = defaultdict(int)
 avg_value = 0
 
 for i in range(fabric_nums):
     fabric_name = str(input(f'Имя предприятия {i+1}: '))
-    fabric_value = sum(map(int, input('Прибыль за 4 квар. через пробел: ').split()))
+    for ii in range(4):
+        fabrics[fabric_name] += int(input(f'Прибыль на {ii+1} квартал: '))
 
-    fabrics[fabric_name] = fabric_value
-    avg_value += fabric_value
+    avg_value += fabrics[fabric_name]
 
 avg_value /= fabric_nums
 print (f'Средняя годовая прибыль по всем предприятиям: {avg_value}')
 
+print(fabrics)
 
 avg_high = []
 avg_low = []

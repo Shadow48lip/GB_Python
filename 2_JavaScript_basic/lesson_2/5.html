@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Урок №2</h1>
+
+    <script src="4.js"></script>
+    <script>
+        'use strict';
+
+        function mathOperation(arg1, arg2, operation) {
+            let result = 0;
+
+            switch (operation) {
+                case '+':
+                    result = getSumm(arg1, arg2);
+                    break;
+                case '-':
+                    result = getDiff(arg1, arg2);
+                    break;
+                case '/':
+                    result = getDivision(arg1, arg2);
+                    break;
+                case '*':
+                    result = getMul(arg1, arg2);
+                    break;
+            }
+
+            return result;
+        }
+
+
+        alert(mathOperation(4, 3, '+'));
+        alert(mathOperation(4, 3, '-'));
+        alert(mathOperation(12, 3, '/'));
+        alert(mathOperation(4, 3, '*'));
+    </script>
+</body>
+</html>

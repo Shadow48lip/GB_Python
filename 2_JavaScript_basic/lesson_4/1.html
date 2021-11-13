@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Урок 4</title>
+</head>
+
+<body>
+    <script>
+        // 1. (это задание делайте по желанию)
+        // Написать функцию, преобразующую число в объект.
+        // Передавая на вход число в диапазоне [0, 999],
+        // мы должны получить на выходе объект, в котором в соответствующих свойствах описаны 
+        // разряды числа:
+        // - единицы (в свойстве units)
+        // - десятки (в свойстве tens)
+        // - сотни (в свойстве hundereds)
+
+        "use strict";
+
+        class NumberByParts {
+            constructor(hundreds = null, tens = null, units = null) {
+                this.hundreds = hundreds;
+                this.tens = tens;
+                this.units = units;
+            }
+
+
+
+        }
+
+        function numberConversion(num) {
+            // Если что-то пришло не то от пользователя
+            if (!Number.isInteger(num) || num > 999) {
+                const numberObject = new NumberByParts(); // передача с пустыми параметрами
+                console.log('Это не целое число от 0 до 999!');
+                
+                return numberObject; // Надеюсь правильно понял что такое пустой объект
+            }
+            
+            // Получено верное число
+            let hundreds = Math.floor(num / 100);
+            let tens = Math.floor((num - hundreds * 100) / 10);
+            let units = Math.floor(num % 10);
+            const numberObject = new NumberByParts(hundreds, tens, units);
+
+            console.log('Введенное число ' + num);
+            return numberObject;
+        }
+
+
+        let number_by_parts = numberConversion(+prompt('Укажите число от 0 до 999'));
+        console.log(number_by_parts);
+    </script>
+</body>
+
+</html>
